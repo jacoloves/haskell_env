@@ -1,4 +1,3 @@
-import Distribution.Simple.Build (componentInitialBuildSteps)
 -- CharList
 newtype CharList = CharList { getCharList :: [Char] } deriving (Eq, Show)
 
@@ -18,3 +17,21 @@ helloMe (CoolBool _) = "hello"
 
 -- IntList
 type IntList = [Int]
+
+-- Product
+newtype Product a = Product { getProduct :: a }
+    deriving (Eq, Ord, Read, Show, Bounded)
+
+-- any
+newtype Any = Any { getAny :: Bool }
+    deriving (Eq, Ord, Read, Show, Bounded)
+
+-- all
+newtype All = All { getAll :: Bool }
+    deriving (Eq, Ord, Read, Show, Bounded)
+
+-- lengthCompare
+lentgthCompare :: String -> String -> Ordering
+lentgthCompare x y = let a = length x `compare` length y
+                         b = x `compare` y
+                     in if a == EQ then b else a
