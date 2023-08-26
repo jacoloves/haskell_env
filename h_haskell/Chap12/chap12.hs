@@ -1,3 +1,5 @@
+import Data.Monoid
+
 -- CharList
 newtype CharList = CharList { getCharList :: [Char] } deriving (Eq, Show)
 
@@ -31,7 +33,16 @@ newtype All = All { getAll :: Bool }
     deriving (Eq, Ord, Read, Show, Bounded)
 
 -- lengthCompare
+{-
 lentgthCompare :: String -> String -> Ordering
 lentgthCompare x y = let a = length x `compare` length y
                          b = x `compare` y
                      in if a == EQ then b else a
+-}
+
+lentgthCompare :: String -> String -> Ordering
+lentgthCompare x y = (length x `compare` length y) `mappend`
+                     (vowels x `compare` vowels y) `mappend`
+                     (x `compare` y)
+                     where vowels = length . filter (`elem` "aeiou")
+
