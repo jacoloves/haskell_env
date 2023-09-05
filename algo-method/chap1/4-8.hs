@@ -6,6 +6,6 @@ main = do
     n <- getLine
     s <- replicateM (read n) getLine
 
-    print s
+    print $ length $ concat s
 
     
