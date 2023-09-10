@@ -1,5 +1,7 @@
 main = do
+    putStr "Enter a number: "
     n <- readLn :: IO Int
+    print n
     let result = countSteps n 0
     print result
 
