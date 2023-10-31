@@ -11,5 +11,3 @@ main = do
   let ans = sum [a_i * b_i | (a_i, b_i) <- a]
   print (truncate (fromIntegral ans * 1.05) :: Int)
 
-
-
