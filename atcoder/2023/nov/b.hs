@@ -17,4 +17,4 @@ main = do
 
     let firstSortArray = map head sortArry
 
-    print firstSortArray
+    putStrLn $ unwords $ map show firstSortArray
